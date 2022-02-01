@@ -1,0 +1,51 @@
+
+
+
+h4 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.count {
+    color: white;
+}
+
+.navbar{
+    height: 10vh;
+    padding-left: 70px;
+}
+
+section{
+    height: 30vh;
+    background-color: teal;
+}
+
+#intro{
+    font-family: sans-serif;
+
+}
+
+.lead{
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+#intro p{
+font-size: 10px;
+padding-bottom: 10px;
+}
+
+main{
+    height: 60vh;
+    background-color: turquoise;
+    width: auto;
+}
+
+.hollywood{
+    background-color: thistle;
+    height: 20vh;
+}
+.comedies{
+    background-color: rgb(72, 70, 201);
+    height: 20vh;
+}
+
