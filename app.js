@@ -124,16 +124,19 @@ const movies = [
 
 const sectionCenter = document.querySelector('.intro');
 const sectionDisplay = document.querySelector('.view');
+let x = 0;
+let film;
+
+
+
 
 
 
 //load items
 window.addEventListener("DOMContentLoaded", function () {
     displayMoviesItems(movies);
+
 });
-
-//page two
-
 
 
 
@@ -145,7 +148,7 @@ function displayMoviesItems(moviesItems) {
         <div class="movies-info">
             <h6 class="title-movies text-light">${item.name}</h6>
         </div>
-    </movies>`;
+       </movies>`;
     });
 
     displayMovies = displayMovies.join("");
@@ -158,54 +161,61 @@ function displayMoviesItems(moviesItems) {
         btn.addEventListener('click', function (e) {
             const id = e.currentTarget.id;
             const moviesCategory = movies.filter(function (moviesItem) {
-                //console.log(moviesItem.id);
-                console.log(id);
 
-                if (moviesItem.id === id) {
-                    let displayMenu = moviesItem.map(function (item) {
-                        return ` <div class="tomovies">
-                        <div class="title1">
-                            <div class="title1-first">
-                                <h6><span class="n">N</span>Film</h6>
-                            </div>
-                            <div class="title1-second">
-                                <h3>${item.name}</h3>
-                            </div>
-                        </div>
-                        <div class="title2">
-                            <h5>${item.name}</h5>
-                        </div>
-                        <div class="info1 btn-group">
-                            <p class="year">${item.year}</p>
-                            <p class="age">+16</p>
-                            <p class="duration">${item.duration}</p>
-                            <p class="genre">Social Issue Dramas</p>
-                        </div>
-                        <div class="description">
-                            <p>${item.description}</p>
-                        </div>
-                        <div class="actors">
-                            <p>Staring: ${item.actors}</p>
-                        </div>
-                        <div class="btn-container">
-                            <button class="filter-btn btn-danger" type="button" data-id="watch">Watch trailer</button>
-                            <button class="filter-btn btn-danger" type="button" data-id="add">Add to favorite</button>
-                        </div>
-            
-                    </div>`;
-                    });
+
+                //console.log(moviesItem.id);
+                //console.log(id);
+
+                if (moviesItem.id = id) {
+                    x = id;
+
                 }
+
+
             });
-            sectionDisplay.innerHTML = moviesCategory;
+            // console.log(x);
+            film = movies[x - 1];
+            //console.log(film);
+
+            let displayFilm = ` <div class="tomovies">
+            <div class="title1">
+                <div class="title1-first">
+                    <h6><span class="n">N</span>Film</h6>
+                </div>
+                <div class="title1-second">
+                    <h3>${film.name}</h3>
+                </div>
+            </div>
+            <div class="title2">
+                <h5>${film.name}</h5>
+            </div>
+            <div class="info1 btn-group">
+                <p class="year">${film.year}</p>
+                <p class="age">+16</p>
+                <p class="duration">${film.duration}</p>
+                <p class="genre">Social Issue Dramas</p>
+            </div>
+            <div class="description">
+                <p>${film.description}</p>
+            </div>
+            <div class="actors">
+                <p>Staring: ${film.actors}</p>
+            </div>
+            <div class="btn-container">
+                <button class="filter-btn btn-danger" type="button" data-id="watch">Watch trailer</button>
+                <button class="filter-btn btn-danger" type="button" data-id="add">Add to favorite</button>
+            </div>
+
+            <div class = "bgimage">
+            <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
+        </div>
+        </div>`;
+
+            sectionDisplay.innerHTML = displayFilm;
 
         });
     });
-
-
-
 }
-
-
 
 
 
