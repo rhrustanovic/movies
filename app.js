@@ -130,7 +130,6 @@ const sectionDisplay = document.querySelector('.view');
 //load items
 window.addEventListener("DOMContentLoaded", function () {
     displayMoviesItems(movies);
-    pageTwo();
 });
 
 //page two
@@ -152,19 +151,19 @@ function displayMoviesItems(moviesItems) {
     displayMovies = displayMovies.join("");
     sectionCenter.innerHTML = displayMovies;
 
-    function pageTwo() {
-        const btnMovies = document.querySelectorAll('.photo');
 
-        btnMovies.forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                const category = e.currentTarget.id;
-                const moviesCategory = movies.filter(function (moviesItem) {
-                    //console.log(moviesItem.id);
-                    //console.log(category);
+    const btnMovies = document.querySelectorAll('.photo');
 
-                    if (moviesItem.id === category) {
-                        let displayMenu = moviesItem.map(function (item) {
-                            return ` <div class="tomovies">
+    btnMovies.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            const id = e.currentTarget.id;
+            const moviesCategory = movies.filter(function (moviesItem) {
+                //console.log(moviesItem.id);
+                console.log(id);
+
+                if (moviesItem.id === id) {
+                    let displayMenu = moviesItem.map(function (item) {
+                        return ` <div class="tomovies">
                         <div class="title1">
                             <div class="title1-first">
                                 <h6><span class="n">N</span>Film</h6>
@@ -194,14 +193,14 @@ function displayMoviesItems(moviesItems) {
                         </div>
             
                     </div>`;
-                        });
-                    }
-                });
-                sectionDisplay.innerHTML = moviesCategory;
-
+                    });
+                }
             });
+            sectionDisplay.innerHTML = moviesCategory;
+
         });
-    };
+    });
+
 
 
 }
