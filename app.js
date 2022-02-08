@@ -123,18 +123,26 @@ const movies = [
 ];
 
 const sectionCenter = document.querySelector('.intro');
+const sectionDisplay = document.querySelector('.view');
+
+
 
 //load items
 window.addEventListener("DOMContentLoaded", function () {
     displayMoviesItems(movies);
-
+    pageTwo();
 });
+
+//page two
+
+
+
 
 function displayMoviesItems(moviesItems) {
     let displayMovies = moviesItems.map(function (item) {
 
         return `<movies class="movies-single">
-        <img src="${item.backgroundimage}" class="photo" alt="movies-photo">
+        <img src="${item.backgroundimage}" class="photo" id ="${item.id}" alt="movies-photo">
         <div class="movies-info">
             <h6 class="title-movies text-light">${item.name}</h6>
         </div>
@@ -143,4 +151,62 @@ function displayMoviesItems(moviesItems) {
 
     displayMovies = displayMovies.join("");
     sectionCenter.innerHTML = displayMovies;
+
+    function pageTwo() {
+        const btnMovies = document.querySelectorAll('.photo');
+
+        btnMovies.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                const category = e.currentTarget.id;
+                const moviesCategory = movies.filter(function (moviesItem) {
+                    //console.log(moviesItem.id);
+                    //console.log(category);
+
+                    if (moviesItem.id === category) {
+                        let displayMenu = moviesItem.map(function (item) {
+                            return ` <div class="tomovies">
+                        <div class="title1">
+                            <div class="title1-first">
+                                <h6><span class="n">N</span>Film</h6>
+                            </div>
+                            <div class="title1-second">
+                                <h3>${item.name}</h3>
+                            </div>
+                        </div>
+                        <div class="title2">
+                            <h5>${item.name}</h5>
+                        </div>
+                        <div class="info1 btn-group">
+                            <p class="year">${item.year}</p>
+                            <p class="age">+16</p>
+                            <p class="duration">${item.duration}</p>
+                            <p class="genre">Social Issue Dramas</p>
+                        </div>
+                        <div class="description">
+                            <p>${item.description}</p>
+                        </div>
+                        <div class="actors">
+                            <p>Staring: ${item.actors}</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="filter-btn btn-danger" type="button" data-id="watch">Watch trailer</button>
+                            <button class="filter-btn btn-danger" type="button" data-id="add">Add to favorite</button>
+                        </div>
+            
+                    </div>`;
+                        });
+                    }
+                });
+                sectionDisplay.innerHTML = moviesCategory;
+
+            });
+        });
+    };
+
+
 }
+
+
+
+
+
