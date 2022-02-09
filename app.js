@@ -178,6 +178,7 @@ function displayMoviesItems(moviesItems) {
             //console.log(film);
 
             let displayFilm = ` <div class="tomovies">
+            <div class = "infomovies">
             <div class="title1">
                 <div class="title1-first">
                     <h6><span class="n">N</span>Film</h6>
@@ -205,9 +206,10 @@ function displayMoviesItems(moviesItems) {
                 <button class="filter-btn btn-danger" type="button" data-id="watch">Watch trailer</button>
                 <button class="filter-btn btn-danger" type="button" data-id="add">Add to favorite</button>
             </div>
-
-            <div class = "bgimage">
-            <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
+        </div>
+        
+        <div class = "bgimage">
+        <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
         </div>
         </div>`;
 
