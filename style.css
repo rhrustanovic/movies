@@ -18,7 +18,10 @@ nav{
     display: flex;
     float: right;
     font-size: 2.5vw;
-    
+}
+
+.heart:hover{
+    cursor: pointer;
 }
 
 .count{
@@ -97,4 +100,93 @@ margin-top: 2vw;
     float: right;
     
 }
+
+.title1-first{
+    box-sizing: border-box;
+    margin-bottom: 0;
+    justify-items: center;
+}
+
+.n {
+    color: rgb(185, 14, 14);
+    font-size: 1.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-right: 0.5vw;
+    
+}
+
+.f {
+    font-size: 0.5rem;
+    padding-bottom: 5px;
+    
+}
+
+.infomovies {
+    padding-top: 10vh;
+}
+
+.title1-second{
+font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight: bold;
+font-size: 1.5rem;
+margin-top: 0;
+}
+
+.title2 {
+    font-size: 0.8rem;
+}
+
+.info1 {
+    font-size: 0.6rem;
+    opacity: 0.5;
+
+}
+
+.year{
+    margin-right: 0.5vw;
+    padding-right: 0.5vw;
+    border-right: 1px solid white;
+
+}
+.age{
+    margin-right: 0.5vw;
+    padding-right: 0.5vw;
+    border-right: 1px solid white;
+}
+.duration{
+    margin-right: 0.5vw;
+    padding-right: 0.5vw;
+    border-right: 1px solid white;
+}
+.genre{
+   
+}
+
+.description{
+    font-size: 0.7rem;
+}
+
+.actors{
+    font-size: 0.7rem;
+}
+.starring{
+    opacity: 0.5;
+}
+
+.filter-btn{
+    background-color: rgb(212, 20, 20);
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    margin-right: 1.5vw;
+}
+
+.filter-btn:hover{
+    background-color: rgb(255, 25, 25);
+}
+
+
+
 

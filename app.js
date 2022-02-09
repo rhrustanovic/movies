@@ -170,8 +170,6 @@ function displayMoviesItems(moviesItems) {
                     x = id;
 
                 }
-
-
             });
             // console.log(x);
             film = movies[x - 1];
@@ -181,7 +179,7 @@ function displayMoviesItems(moviesItems) {
             <div class = "infomovies">
             <div class="title1">
                 <div class="title1-first">
-                    <h6><span class="n">N</span>Film</h6>
+                    <h6><span class="n">N</span><span class = "f">F I L M</span></h6>
                 </div>
                 <div class="title1-second">
                     <h3>${film.name}</h3>
@@ -200,11 +198,11 @@ function displayMoviesItems(moviesItems) {
                 <p>${film.description}</p>
             </div>
             <div class="actors">
-                <p>Staring: ${film.actors}</p>
+                <p><span class = "starring">Starring:</span> ${film.actors}</p>
             </div>
             <div class="btn-container">
-                <button class="filter-btn btn-danger" type="button" data-id="watch">Watch trailer</button>
-                <button class="filter-btn btn-danger" type="button" data-id="add">Add to favorite</button>
+                <button class="filter-btn watch" type="button" id="${film.trailer}">Watch trailer</button>
+                <button class="filter-btn add" type="button" id="${film.backgroundimage}">Add favorite</button>
             </div>
         </div>
         
@@ -215,8 +213,12 @@ function displayMoviesItems(moviesItems) {
 
             sectionDisplay.innerHTML = displayFilm;
 
+
+
         });
     });
+
+
 }
 
 
