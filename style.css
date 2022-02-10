@@ -187,6 +187,15 @@ margin-top: 0;
     background-color: rgb(255, 25, 25);
 }
 
+.favoritemovies{
+    margin-top: 5vh;
+}
 
+.favoriteimage{
+    width: 17vw;
+    height: 22vh;
+    margin-top: 5px;
+    float: left;
+}
 
 

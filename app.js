@@ -124,8 +124,11 @@ const movies = [
 
 const sectionCenter = document.querySelector('.intro');
 const sectionDisplay = document.querySelector('.view');
+const sectionFavorite = document.querySelector('.pagethrre');
+const countFavorite = document.querySelector('.count');
 let x = 0;
 let film;
+let count = 0;
 
 
 
@@ -201,8 +204,8 @@ function displayMoviesItems(moviesItems) {
                 <p><span class = "starring">Starring:</span> ${film.actors}</p>
             </div>
             <div class="btn-container">
-                <button class="filter-btn watch" type="button" id="${film.trailer}">Watch trailer</button>
-                <button class="filter-btn add" type="button" id="${film.backgroundimage}">Add favorite</button>
+                <button class="filter-btn watch" type="button" id="${film.id}">Watch trailer</button>
+                <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
             </div>
         </div>
         
@@ -214,12 +217,29 @@ function displayMoviesItems(moviesItems) {
             sectionDisplay.innerHTML = displayFilm;
 
 
+            const btnAdd = document.querySelector('.add');
+
+            //console.log(btnAdd.id);
+
+            btnAdd.addEventListener('click', function () {
+                //console.log(btnAdd.id);
+                let addFavorite = `<div class = "favoritemovies">
+                <img src="${film.backgroundimage}" class="favoriteimage" id ="${film.id}" alt="movies-photo">
+                </div>`;
+
+                count += 1;
+                countFavorite.innerHTML = count;
+                sectionDisplay.innerHTML = addFavorite;
+            });
+
+
 
         });
+
     });
 
-
 }
+
 
 
 
