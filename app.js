@@ -124,11 +124,13 @@ const movies = [
 
 const sectionCenter = document.querySelector('.intro');
 const sectionDisplay = document.querySelector('.view');
-const sectionFavorite = document.querySelector('.pagethrre');
+const sectionFavorite = document.querySelector('.pagethree');
 const countFavorite = document.querySelector('.count');
+const viewHearts = document.querySelector('#heart');
 let x = 0;
 let film;
 let count = 0;
+let addFavorite;
 
 
 
@@ -138,6 +140,8 @@ let count = 0;
 //load items
 window.addEventListener("DOMContentLoaded", function () {
     displayMoviesItems(movies);
+    hearts();
+
 
 });
 
@@ -156,6 +160,8 @@ function displayMoviesItems(moviesItems) {
 
     displayMovies = displayMovies.join("");
     sectionCenter.innerHTML = displayMovies;
+    
+
 
 
     const btnMovies = document.querySelectorAll('.photo');
@@ -179,42 +185,48 @@ function displayMoviesItems(moviesItems) {
             //console.log(film);
 
             let displayFilm = ` <div class="tomovies">
-            <div class = "infomovies">
-            <div class="title1">
+            <div class = "infomovies1">
+               <div class = "infomovies">
+               <div class="title1">
                 <div class="title1-first">
                     <h6><span class="n">N</span><span class = "f">F I L M</span></h6>
                 </div>
                 <div class="title1-second">
                     <h3>${film.name}</h3>
                 </div>
-            </div>
-            <div class="title2">
+                </div>
+                 <div class="title2">
                 <h5>${film.name}</h5>
-            </div>
-            <div class="info1 btn-group">
+                </div>
+                <div class="info1 btn-group">
                 <p class="year">${film.year}</p>
                 <p class="age">+16</p>
                 <p class="duration">${film.duration}</p>
                 <p class="genre">Social Issue Dramas</p>
-            </div>
-            <div class="description">
+                </div>
+                 <div class="description">
                 <p>${film.description}</p>
-            </div>
-            <div class="actors">
+                 </div>
+                <div class="actors">
                 <p><span class = "starring">Starring:</span> ${film.actors}</p>
-            </div>
-            <div class="btn-container">
+                 </div>
+                <div class="btn-container">
                 <button class="filter-btn watch" type="button" id="${film.id}">Watch trailer</button>
                 <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
+                </div>
             </div>
-        </div>
         
-        <div class = "bgimage">
-        <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
+             <div class = "bgimage">
+             <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
         </div>
+
+        
+        </div>
+        <div class="container-fluid pagethree"></div>
         </div>`;
 
             sectionDisplay.innerHTML = displayFilm;
+            
 
 
             const btnAdd = document.querySelector('.add');
@@ -223,22 +235,31 @@ function displayMoviesItems(moviesItems) {
 
             btnAdd.addEventListener('click', function () {
                 //console.log(btnAdd.id);
-                let addFavorite = `<div class = "favoritemovies">
+                addFavorite = `<div class = "favoritemovies">
                 <img src="${film.backgroundimage}" class="favoriteimage" id ="${film.id}" alt="movies-photo">
                 </div>`;
 
                 count += 1;
                 countFavorite.innerHTML = count;
-                sectionDisplay.innerHTML = addFavorite;
+
+
+
+
             });
-
-
-
         });
 
     });
 
 }
+
+
+
+function hearts() {
+    viewHearts.addEventListener('click', function () {
+        sectionDisplay.innerHTML = addFavorite;
+    });
+}
+
 
 
 
