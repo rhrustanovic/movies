@@ -127,6 +127,7 @@ const sectionDisplay = document.querySelector('.view');
 const sectionFavorite = document.querySelector('.pagethree');
 const countFavorite = document.querySelector('.count');
 const viewHearts = document.querySelector('#heart');
+
 let x = 0;
 let film;
 let count = 0;
@@ -141,8 +142,6 @@ let addFavorite;
 window.addEventListener("DOMContentLoaded", function () {
     displayMoviesItems(movies);
     hearts();
-
-
 });
 
 
@@ -160,7 +159,7 @@ function displayMoviesItems(moviesItems) {
 
     displayMovies = displayMovies.join("");
     sectionCenter.innerHTML = displayMovies;
-    
+
 
 
 
@@ -214,19 +213,22 @@ function displayMoviesItems(moviesItems) {
                 <button class="filter-btn watch" type="button" id="${film.id}">Watch trailer</button>
                 <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
                 </div>
-            </div>
+                </div>
         
              <div class = "bgimage">
              <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
-        </div>
+             </div>
 
+             <div class = "back">
+             <i class="bi bi-arrow-left-square-fill" id = "back"></i>
+             </div>
         
-        </div>
-        <div class="container-fluid pagethree"></div>
+            </div>
+               <div class="container-fluid pagethree"></div>
         </div>`;
 
             sectionDisplay.innerHTML = displayFilm;
-            
+
 
 
             const btnAdd = document.querySelector('.add');
@@ -241,10 +243,12 @@ function displayMoviesItems(moviesItems) {
 
                 count += 1;
                 countFavorite.innerHTML = count;
+            });
 
+            const backPageFirst = document.querySelector('.back');
 
-
-
+            backPageFirst.addEventListener('click', function () {
+                console.log("hello");
             });
         });
 
@@ -259,6 +263,8 @@ function hearts() {
         sectionDisplay.innerHTML = addFavorite;
     });
 }
+
+
 
 
 
