@@ -118,7 +118,8 @@ const movies = [
         duration: "2h18",
         backgroundimage: "https://occ-0-6146-2705.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABRqZnHpGir15iaQIUNGCzbKYQaJDM0U0wF_D9OS-50HWZ979Yw3UvKBjnpNvjDOsiEd6-BW4eDhUprUbyl5HQCtwK9Cq.jpg?r=94a",
         description: "Two astronomers go on a media tour to warn humankind of a planet-killing comet hurtling toward Earth. The response from a distracted world: Meh",
-        actors: "Leonardo DiCaprio, Jennifer Lawrence, Meryl Streep"
+        actors: "Leonardo DiCaprio, Jennifer Lawrence, Meryl Streep",
+        trailer: "https://www.youtube.com/watch?v=Pj0wz7zu3Ms&ab_channel=Netflix"
     }
 ];
 
@@ -127,14 +128,13 @@ const sectionDisplay = document.querySelector('.view');
 const sectionFavorite = document.querySelector('.pagethree');
 const countFavorite = document.querySelector('.count');
 const viewHearts = document.querySelector('#heart');
+let sectionPageSecond = document.querySelector('.page-second');
 
 let x = 0;
 let film;
 let count = 0;
 let addFavorite;
-
-
-
+let displayFilm;
 
 
 
@@ -143,6 +143,8 @@ window.addEventListener("DOMContentLoaded", function () {
     displayMoviesItems(movies);
     hearts();
 });
+
+
 
 
 
@@ -159,6 +161,7 @@ function displayMoviesItems(moviesItems) {
 
     displayMovies = displayMovies.join("");
     sectionCenter.innerHTML = displayMovies;
+
 
 
 
@@ -183,7 +186,7 @@ function displayMoviesItems(moviesItems) {
             film = movies[x - 1];
             //console.log(film);
 
-            let displayFilm = ` <div class="tomovies">
+            sectionPageSecond = ` <div class="tomovies">
             <div class = "infomovies1">
                <div class = "infomovies">
                <div class="title1">
@@ -210,7 +213,7 @@ function displayMoviesItems(moviesItems) {
                 <p><span class = "starring">Starring:</span> ${film.actors}</p>
                  </div>
                 <div class="btn-container">
-                <button class="filter-btn watch" type="button" id="${film.id}">Watch trailer</button>
+                <button class="filter-btn watch" type="button" id="${film.id}"><a href="https://www.youtube.com/watch?v=Pj0wz7zu3Ms&ab_channel=Netflix" target="_blank" id="watch">Watch</a></button>
                 <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
                 </div>
                 </div>
@@ -227,10 +230,10 @@ function displayMoviesItems(moviesItems) {
                <div class="container-fluid pagethree"></div>
         </div>`;
 
-            sectionDisplay.innerHTML = displayFilm;
+            sectionDisplay.innerHTML = sectionPageSecond;
 
 
-
+            // add favorite
             const btnAdd = document.querySelector('.add');
 
             //console.log(btnAdd.id);
@@ -245,16 +248,21 @@ function displayMoviesItems(moviesItems) {
                 countFavorite.innerHTML = count;
             });
 
-            const backPageFirst = document.querySelector('.back');
 
+            //btn back
+            const backPageFirst = document.querySelector('.back');
             backPageFirst.addEventListener('click', function () {
-                console.log("hello");
+                window.history.back("index.html");
             });
+
         });
 
     });
 
 }
+
+
+
 
 
 
