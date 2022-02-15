@@ -128,7 +128,7 @@ const sectionDisplay = document.querySelector('.view');
 const sectionFavorite = document.querySelector('.pagethree');
 const countFavorite = document.querySelector('.count');
 const viewHearts = document.querySelector('#heart');
-let sectionPageSecond = document.querySelector('.page-second');
+const searchBar = document.getElementById('searchbar');
 
 let x = 0;
 let film;
@@ -140,16 +140,17 @@ let displayFilm;
 
 //load items
 window.addEventListener("DOMContentLoaded", function () {
-    displayMoviesItems();
+    displayMoviesItems(movies);
     hearts();
+    searchBars();
 });
 
 
 
 
 
-function displayMoviesItems() {
-    let displayMovies = movies.map(function (item) {
+function displayMoviesItems(moviesItem) {
+    let displayMovies = moviesItem.map(function (item) {
 
         return `<movies class="movies-single">
         <img src="${item.backgroundimage}" class="photo" id ="${item.id}" alt="movies-photo">
@@ -253,7 +254,6 @@ function displayMoviesItems() {
                 window.history.back("index.html");
             });
 
-
         });
 
     });
@@ -261,13 +261,19 @@ function displayMoviesItems() {
 }
 
 
-
-
-
-
 function hearts() {
     viewHearts.addEventListener('click', function () {
         sectionDisplay.innerHTML = addFavorite;
+    });
+}
+
+function searchBars() {
+    searchBar.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const filteredFilms = movies.filter(films => {
+            return films.name.toLowerCase().includes(searchString);
+        });
+        displayMoviesItems(filteredFilms);
     });
 }
 
