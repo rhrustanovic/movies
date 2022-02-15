@@ -140,7 +140,7 @@ let displayFilm;
 
 //load items
 window.addEventListener("DOMContentLoaded", function () {
-    displayMoviesItems(movies);
+    displayMoviesItems();
     hearts();
 });
 
@@ -148,8 +148,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-function displayMoviesItems(moviesItems) {
-    let displayMovies = moviesItems.map(function (item) {
+function displayMoviesItems() {
+    let displayMovies = movies.map(function (item) {
 
         return `<movies class="movies-single">
         <img src="${item.backgroundimage}" class="photo" id ="${item.id}" alt="movies-photo">
@@ -189,43 +189,41 @@ function displayMoviesItems(moviesItems) {
             sectionPageSecond = ` <div class="tomovies">
             <div class = "infomovies1">
                <div class = "infomovies">
-               <div class="title1">
-                <div class="title1-first">
+                  <div class="title1">
+                  <div class="title1-first">
                     <h6><span class="n">N</span><span class = "f">F I L M</span></h6>
-                </div>
-                <div class="title1-second">
-                    <h3>${film.name}</h3>
-                </div>
-                </div>
-                 <div class="title2">
-                <h5>${film.name}</h5>
-                </div>
-                <div class="info1 btn-group">
-                <p class="year">${film.year}</p>
-                <p class="age">+16</p>
-                <p class="duration">${film.duration}</p>
-                <p class="genre">Social Issue Dramas</p>
-                </div>
+                  </div>
+                  <div class="title1-second">
+                     <h3>${film.name}</h3>
+                      </div>
+                       </div>
+                      <div class="title2">
+                     <h5>${film.name}</h5>
+                  </div>
+                  <div class="info1 btn-group">
+                      <p class="year">${film.year}</p>
+                      <p class="age">+16</p>
+                       <p class="duration">${film.duration}</p>
+                     <p class="genre">Social Issue Dramas</p>
+                  </div>
                  <div class="description">
-                <p>${film.description}</p>
+                      <p>${film.description}</p>
                  </div>
-                <div class="actors">
-                <p><span class = "starring">Starring:</span> ${film.actors}</p>
+                 <div class="actors">
+                    <p><span class = "starring">Starring:</span> ${film.actors}</p>
                  </div>
-                <div class="btn-container">
-                <button class="filter-btn watch" type="button" id="${film.id}"><a href="https://www.youtube.com/watch?v=Pj0wz7zu3Ms&ab_channel=Netflix" target="_blank" id="watch">Watch</a></button>
-                <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
-                </div>
+                 <div class="btn-container">
+                    <button class="filter-btn watch" type="button" id="${film.id}"><a href="https://www.youtube.com/watch?v=Pj0wz7zu3Ms&ab_channel=Netflix" target="_blank" id="watch">Watch</a></button>
+                     <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
+                 </div>
+                    <div class = "back">
+                        <i class="bi bi-arrow-left-square-fill" id = "back"></i>
+                    </div>
                 </div>
         
-             <div class = "bgimage">
-             <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
-             </div>
-
-             <div class = "back">
-             <i class="bi bi-arrow-left-square-fill" id = "back"></i>
-             </div>
-        
+               <div class = "bgimage">
+               <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
+               </div>
             </div>
                <div class="container-fluid pagethree"></div>
         </div>`;
@@ -251,9 +249,10 @@ function displayMoviesItems(moviesItems) {
 
             //btn back
             const backPageFirst = document.querySelector('.back');
-            backPageFirst.addEventListener('click', function () {
+            backPageFirst.addEventListener('click', () => {
                 window.history.back("index.html");
             });
+
 
         });
 
