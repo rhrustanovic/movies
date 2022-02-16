@@ -125,10 +125,12 @@ const movies = [
 
 const sectionCenter = document.querySelector('.intro');
 const sectionDisplay = document.querySelector('.view');
-const sectionFavorite = document.querySelector('.pagethree');
+const sectionPageSecond = document.querySelector('.page-second');
+const sectionPageThree = document.querySelector('.pagethree');
 const countFavorite = document.querySelector('.count');
 const viewHearts = document.querySelector('#heart');
 const searchBar = document.getElementById('searchbar');
+
 
 let x = 0;
 let film;
@@ -172,7 +174,7 @@ function displayMoviesItems(moviesItem) {
     btnMovies.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             const id = e.currentTarget.id;
-            const moviesCategory = movies.filter(function (moviesItem) {
+            movies.filter(function (moviesItem) {
 
 
                 //console.log(moviesItem.id);
@@ -182,12 +184,12 @@ function displayMoviesItems(moviesItem) {
                     x = id;
 
                 }
-            });
-            // console.log(x);
-            film = movies[x - 1];
-            //console.log(film);
 
-            sectionPageSecond = ` <div class="tomovies">
+                // console.log(x);
+                film = movies[x - 1];
+                //console.log(film);
+
+                addFavorite = ` <div class="tomovies">
             <div class = "infomovies1">
                <div class = "infomovies">
                   <div class="title1">
@@ -217,7 +219,7 @@ function displayMoviesItems(moviesItem) {
                     <button class="filter-btn watch" type="button" id="${film.id}"><a href="https://www.youtube.com/watch?v=Pj0wz7zu3Ms&ab_channel=Netflix" target="_blank" id="watch">Watch</a></button>
                      <button class="filter-btn add" type="button" id="${film.id}">Add favorite</button>
                  </div>
-                    <div class = "back">
+                    <div class = "backs">
                         <i class="bi bi-arrow-left-square-fill" id = "back"></i>
                     </div>
                 </div>
@@ -225,18 +227,18 @@ function displayMoviesItems(moviesItem) {
                <div class = "bgimage">
                <img src="${film.backgroundimage}" class="bg" id ="${film.id}" alt="movies-photo">
                </div>
-            </div>
+             </div>
                <div class="container-fluid pagethree"></div>
-        </div>`;
+             </div>`;
+            });
 
-            sectionDisplay.innerHTML = sectionPageSecond;
+            sectionPageSecond.innerHTML = addFavorite;
+            sectionDisplay.style.display = "none";
 
 
             // add favorite
             const btnAdd = document.querySelector('.add');
-
             //console.log(btnAdd.id);
-
             btnAdd.addEventListener('click', function () {
                 //console.log(btnAdd.id);
                 addFavorite = `<div class = "favoritemovies">
@@ -249,21 +251,30 @@ function displayMoviesItems(moviesItem) {
 
 
             //btn back
-            const backPageFirst = document.querySelector('.back');
+            const backPageFirst = document.querySelector('.backs');
             backPageFirst.addEventListener('click', () => {
                 window.history.back("index.html");
             });
 
+
+
         });
 
     });
+
 
 }
 
 
 function hearts() {
     viewHearts.addEventListener('click', function () {
-        sectionDisplay.innerHTML = addFavorite;
+        if (count > 0) {
+            sectionPageSecond.style.display = "none";
+            sectionDisplay.style.display = "none";
+            sectionPageThree.innerHTML = addFavorite;
+        } else {
+            alert("Movies not added");
+        }
     });
 }
 

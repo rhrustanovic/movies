@@ -22,7 +22,9 @@ nav{
 
 .heart:hover{
     cursor: pointer;
+    
 }
+
 
 .count{
     font-size: 1.7vw;
@@ -104,6 +106,7 @@ margin-top: 2vw;
     width: 75vw;
     height: 80vh;
     float: right;
+    margin-right: 0;
     
 }
 
@@ -192,6 +195,21 @@ margin-top: 0;
     background-color: rgb(255, 25, 25);
 }
 
+.add:active{
+    background-color: rgb(170, 45, 7);
+}
+
+.watch:active{
+    background-color: rgb(170, 45, 7);
+}
+
+#watch{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+
 
 
 .favoritemovies{
@@ -217,7 +235,7 @@ margin-top: 0;
 
 
 
-.back{
+.backs{
     color: rgb(99, 95, 95);
     position: absolute;
     font-size: 1.3rem;
@@ -225,19 +243,15 @@ margin-top: 0;
 }
 
 
-.back:hover{
+.backs:hover{
     color: darkgrey;
     cursor: pointer;
 }
 
-.back:active{
+.backs:active{
     border: 1px solid rgb(24, 24, 23);
 }
 
-#watch{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
 
 .search{
     margin-top: 70px;
@@ -263,6 +277,7 @@ margin-top: 0;
 #searchbar{
     width: 120px;
 }
+
 
 
 
