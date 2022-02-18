@@ -4,6 +4,7 @@
 
 body{
     background-color: rgb(24, 23, 23);
+    overflow: hidden;
     
 }
 
@@ -31,6 +32,7 @@ nav{
     transform: translateX(-70%);
     font-family: sans-serif, Arial, Helvetica;
 }
+
 
 .title{
     font-size: 2vw;
@@ -230,6 +232,7 @@ margin-top: 0;
     box-sizing: border-box;
     margin-top: 0;
     height: 100vh;
+    overflow: auto;
     
 }
 
@@ -278,6 +281,13 @@ margin-top: 0;
     width: 120px;
 }
 
+.page-second{
+    overflow: hidden;
+}
+
+.view{
+    overflow: auto;
+}
 
 
 
